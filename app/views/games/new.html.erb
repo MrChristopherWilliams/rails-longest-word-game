@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>New Game</h1>
+  <p><%=@letters%></p>
+</div>
+<div class="container">
+  <form action="/score">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <!-- Start Time -->
+    <%= hidden_field_tag :start_time, Time.now.to_i %>
+    <p>What is the longest word you can find?</p>
+    <input type="text" name="word">
+    <input type="submit" value="Play!">
+    <!-- End Time -->
+    <%= hidden_field_tag :end_time, Time.now.to_i %>
+    <!-- Letters -->
+    <%= hidden_field_tag :letters, @letters %>
+  </form>
+</div>
